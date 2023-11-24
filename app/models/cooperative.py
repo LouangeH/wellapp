@@ -1,8 +1,9 @@
 from django.db import models
+from models.province import Province
 
 class Cooperative(models.Model):
     nom_cooperative = models.CharField(max_length=45, null=True)
-    localite = models.CharField(max_length=45, null=True)
+    localite = models.ForeignKey(Province, on_delete=models.CASCADE)
     nif = models.IntegerField() # le NIF (Numero d'Immatriculation Fiscale)
     rc = models.CharField(max_length=45, null=True) # le RC (Registre de Commerce)
     
